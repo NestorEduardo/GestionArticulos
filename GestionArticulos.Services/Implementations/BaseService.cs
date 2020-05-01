@@ -78,5 +78,6 @@ namespace GestionArticulos.Services.Implementations
             return taskResult;
         }
         public virtual List<T> GetAll() => repository.Get(e => e.IsActive).ToList();
+        public T GetById(int id) => repository.GetById(id);
     }
 }

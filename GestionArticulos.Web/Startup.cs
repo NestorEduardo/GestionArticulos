@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GestionArticulos.Services.Abstract;
+using GestionArticulos.Services.Implementations;
+using GestionArticulos.Repository.Abstract;
+using GestionArticulos.Repository.Implementations;
 
 namespace GestionArticulos.Web
 {
@@ -18,9 +22,10 @@ namespace GestionArticulos.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IWarehouseService, WarehouseService>();
+            services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration =>
             {

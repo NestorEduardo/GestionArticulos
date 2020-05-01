@@ -1,7 +1,12 @@
-﻿namespace GestionArticulos.Core.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GestionArticulos.Core.Domain
 {
     public class Neighborhood : BaseEntity
     {
+        [Required]
+        [StringLength(50)]
+        public string Description { get; set; }
         public Municipality Municipality { get; set; }
         public int MunicipalityId { get; set; }
     }
