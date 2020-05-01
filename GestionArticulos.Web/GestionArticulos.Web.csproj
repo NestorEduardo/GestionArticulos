@@ -31,8 +31,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\warehouse.model.ts" />
+    <None Remove="ClientApp\src\app\services\warehouse.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GestionArticulos.Services\GestionArticulos.Services.csproj" />
     <ProjectReference Include="..\GestionArticulosData\GestionArticulosData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\warehouse.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\warehouse.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
