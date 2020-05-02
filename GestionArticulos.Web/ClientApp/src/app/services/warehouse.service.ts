@@ -7,15 +7,20 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class WarehouseService {
-    warehouses: Array<Warehouse>;
+  warehousesSubject: Subject<Array<Warehouse>>;
 
-    constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.warehousesSubject = new BehaviorSubject<Array<Warehouse>>([]);
+  }
     public getAll() {
-        this._getAll();
-        return this.warehouses;
+       this._getAll();
+      return this.warehousesSubject.asObservable();
     }
 
-    private _getAll() {
-        this.httpClient.get<Array<Warehouse>>(`api/Warehouse/GetAll`).pipe(map(data => { this.warehouses = data; })).subscribe();
-    }
+
+
+  private _getAll() {
+    return this.httpClient.get<Array<Warehouse>>("api/Warehouse/GetAll")
+      .subscribe(warehouses => this.warehousesSubject.next(warehouses), error => this.warehousesSubject.error(error));
+  }
 }

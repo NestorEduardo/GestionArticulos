@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using GestionArticulos.Core.Domain;
 using GestionArticulos.Repository.Abstract;
+using GestionArticulos.Repository.Infrastructure;
 using GestionArticulosData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -59,7 +62,6 @@ namespace GestionArticulos.Repository.Implementations
 
             return query;
         }
-        public IQueryable<T> GetAll() => DbSet;
         public T GetById(int id) => DbSet.Find(id);
         public T Insert(T entity)
         {
@@ -108,6 +110,14 @@ namespace GestionArticulos.Repository.Implementations
             }
 
             return entity;
+        }
+
+        public async Task<List<T>> GetAll()
+        {
+            IQueryable<T> query = Database.Set<T>().AsQueryable();
+            Func<IQueryable<T>, IQueryable<T>> includes = DbContextHelper.GetNavigations<T>();
+            query = includes(query);
+            return await query.ToListAsync();
         }
     }
 }

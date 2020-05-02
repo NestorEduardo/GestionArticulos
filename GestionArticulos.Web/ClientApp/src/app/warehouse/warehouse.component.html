@@ -1,0 +1,31 @@
+<h1>Almacenes</h1>
+<div>
+  <input type="button" class="btn btn-primary" value="Agregar" />
+</div>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Descripci&oacute;n</th>
+      <th scope="col">Direcci&oacute;n</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Municipio</th>
+      <th scope="col">Provincia</th>
+      <th scope="col">Capacidad de art&iacute;culos</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let warehouse of warehouses">
+    <tr>
+      <td>{{warehouse.description}}</td>
+      <td>{{warehouse.address}}</td>
+      <td>{{warehouse.neighborhood.description}}</td>
+      <td>{{warehouse.neighborhood.municipality.description}}</td>
+      <td>{{warehouse.neighborhood.municipality.province.description}}</td>
+      <td>{{warehouse.capacity}}</td>
+      <td><input type="button" class="btn btn-warning" value="Editar" /></td>
+      <td><input type="button" class="btn btn-danger" value="Eliminar" /></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using GestionArticulos.Core.Domain;
 using GestionArticulos.Services.Abstract;
 using GestionArticulos.Services.Framework;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace GestionArticulos.Web.Controllers
 {
@@ -14,10 +17,10 @@ namespace GestionArticulos.Web.Controllers
         public WarehouseController(IWarehouseService warehouseService) => this.warehouseService = warehouseService;
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
-        {
-            List<Warehouse> warehouses = warehouseService.GetAll();
-            return Ok(warehouses);
+        public async Task<IActionResult> GetAll()
+       {
+            var x = await warehouseService.GetAll();
+            return Ok(x);
         }
     }
 }

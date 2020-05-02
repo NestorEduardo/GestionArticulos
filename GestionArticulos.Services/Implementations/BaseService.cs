@@ -2,9 +2,11 @@
 using GestionArticulos.Repository.Abstract;
 using GestionArticulos.Services.Abstract;
 using GestionArticulos.Services.Framework;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GestionArticulos.Services.Implementations
 {
@@ -77,7 +79,7 @@ namespace GestionArticulos.Services.Implementations
 
             return taskResult;
         }
-        public virtual List<T> GetAll() => repository.Get(e => e.IsActive).ToList();
+        public virtual async Task<List<T>> GetAll() => await repository.GetAll();
         public T GetById(int id) => repository.GetById(id);
     }
 }
