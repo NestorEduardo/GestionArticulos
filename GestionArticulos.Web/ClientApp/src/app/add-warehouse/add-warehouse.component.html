@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Agregar almacenes</h1>
+  <form>
+    <div class="form-group">
+      <label for="description">Descripci&oacute;n</label>
+      <input [(ngModel)]="createWarehouse.description" class="form-control" name="description">
+    </div>
+    <div class="form-group">
+      <label for="capacity">Capacidad</label>
+      <input type="number" [(ngModel)]="createWarehouse.capacity" class="form-control" name="capacity">
+    </div>
+    <div class="form-group">
+      <label for="province">Provincia</label>
+      <select (change)="onProvincehange(createWarehouse.provinceId)" class="form-control" name="province" [(ngModel)]="createWarehouse.provinceId">
+        <option selected value="0">[Seleccione una provincia]</option>
+        <option *ngFor="let province of createWarehouse.provinces" [ngValue]="province.id">{{province.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="municipality">Municipio</label>
+      <select (change)="onMunicipalityChange(createWarehouse.municipalityId)" class="form-control" name="municipality" [(ngModel)]="createWarehouse.municipalityId">
+        <option selected value="0">[Seleccione una municipio]</option>
+        <option *ngFor="let municipality of createWarehouse.municipalities" [ngValue]="municipality.id">{{municipality.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="neighborhood">Sector</label>
+      <select class="form-control" name="neighborhood" [(ngModel)]="createWarehouse.neighborhoodId">
+        <option selected value="0">[Seleccione una sector]</option>
+        <option *ngFor="let neighborhood of createWarehouse.neighborhoods" [ngValue]="neighborhood.id">{{neighborhood.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="address">Direcci&oacute;n</label>
+      <input [(ngModel)]="createWarehouse.address" class="form-control" name="address">
+    </div>
+      <div class="pull-right">
+        <button type="submit" (click)="create()" class="btn btn-primary">Agregar</button>
+      </div>
+  </form>
+</div>
+
+

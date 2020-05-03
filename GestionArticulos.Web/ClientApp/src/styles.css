@@ -14,3 +14,17 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.pull-right{
+    float:right;
+}
+
+#outer {
+  width: 100%;
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+}
+

@@ -6,4 +6,10 @@ var Warehouse = /** @class */ (function () {
     return Warehouse;
 }());
 exports.Warehouse = Warehouse;
+var Test = /** @class */ (function () {
+    function Test() {
+    }
+    return Test;
+}());
+exports.Test = Test;
 //# sourceMappingURL=warehouse.model.js.map

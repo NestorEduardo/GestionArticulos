@@ -25,7 +25,13 @@ namespace GestionArticulos.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IWarehouseService, WarehouseService>();
+            services.AddTransient<IProvinceService, ProvinceService>();
+            services.AddTransient<IMunicipalityService, MunicipalityService>();
+            services.AddTransient<INeighborhoodService, NeighborhoodService>();
             services.AddTransient<IWarehouseRepository, WarehouseRepository>();
+            services.AddTransient<IProvinceRepository, ProvinceRepository>();
+            services.AddTransient<IMunicipalityRepository, MunicipalityRepository>();
+            services.AddTransient<INeighborhoodRepository, NeighborhoodRepository>();
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration =>
             {
@@ -34,8 +40,7 @@ namespace GestionArticulos.Web
 
             string dbConnString = Configuration["Data:GestionArticulos:ConnectionString"];
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                     options.UseSqlServer(dbConnString, builder => builder.MigrationsAssembly(typeof(Startup).Assembly.FullName)));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(dbConnString, builder => builder.MigrationsAssembly(typeof(Startup).Assembly.FullName)));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -47,7 +52,6 @@ namespace GestionArticulos.Web
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

@@ -17,7 +17,7 @@ namespace GestionArticulos.Repository.Implementations
         protected readonly ApplicationDbContext Database;
         protected DbSet<T> DbSet => Database.Set<T>();
         protected BaseRepository(ApplicationDbContext database) => Database = database;
-        public int CommitChanges() => Database.SaveChanges();
+        public async Task<int> CommitChanges() => await Database.SaveChangesAsync();
         public int Count() => Database.Set<T>().Count();
         public IQueryable<T> Get(Expression<Func<T, bool>> where, string includeProperties = "")
         {
@@ -63,10 +63,10 @@ namespace GestionArticulos.Repository.Implementations
             return query;
         }
         public T GetById(int id) => DbSet.Find(id);
-        public T Insert(T entity)
+        public async Task<int> Insert(T entity)
         {
             Database.Set<T>().Add(entity);
-            return entity;
+            return await CommitChanges();
         }
         public void SoftDelete(int id)
         {

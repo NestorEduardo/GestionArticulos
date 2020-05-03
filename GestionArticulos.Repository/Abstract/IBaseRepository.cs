@@ -9,13 +9,13 @@ namespace GestionArticulos.Repository.Abstract
 {
     public interface IBaseRepository<T> where T : class
     {
-        int CommitChanges();
+        Task<int> CommitChanges();
         T GetById(int id);
         Task<List<T>> GetAll();
         IQueryable<T> Get(Expression<Func<T, bool>> where, string includeProperties = "");
         IQueryable<T> Get(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] include);
         IQueryable<T> Get(params Expression<Func<T, object>>[] include);
-        T Insert(T entity);
+        Task<int> Insert(T entity);
         T Update(T entity);
         T Update(T entity, int id);
         void SoftDelete(int id);

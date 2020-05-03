@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WarehouseService } from '../services/warehouse.service';
-import { ActivatedRoute } from '@angular/router';
 import { Warehouse } from '../models/warehouse.model';
 
 @Component({
@@ -10,22 +9,18 @@ import { Warehouse } from '../models/warehouse.model';
 export class WarehouseComponent implements OnInit  {
   warehouses: Array<Warehouse> = [];
   error;
-  constructor(private warehouseService: WarehouseService, private route: ActivatedRoute) {
+
+  constructor(private warehouseService: WarehouseService) {
   }
 
   ngOnInit() {
     this.warehouseService.getAll().subscribe(
-      data => {
-        this.warehouses = data
-      
-        
+      warehouses => {
+        this.warehouses = warehouses
       },
       error => alert(error),
       () => console.log('Request completed')
     );
-    console.log(this.warehouses);
   }
 }
-
-
 

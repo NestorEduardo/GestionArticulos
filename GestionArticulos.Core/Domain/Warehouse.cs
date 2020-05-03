@@ -5,7 +5,6 @@ namespace GestionArticulos.Core.Domain
 {
     public class Warehouse : BaseEntity
     {
-        [Required]
         [StringLength(50)]
         public string Description { get; set; }
 
@@ -14,5 +13,9 @@ namespace GestionArticulos.Core.Domain
         public int NeighborhoodId { get; set; }
         public string Address { get; set; }
         public int Capacity { get; set; }
+    }
+    public class Test
+    {
+        public string Description { get; set; }
     }
 }

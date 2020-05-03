@@ -31,7 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\create-warehouse.model.ts" />
+    <None Remove="ClientApp\src\app\models\municipality.model.ts" />
+    <None Remove="ClientApp\src\app\models\neighborhood.model.ts" />
+    <None Remove="ClientApp\src\app\models\province.model.ts" />
     <None Remove="ClientApp\src\app\models\warehouse.model.ts" />
+    <None Remove="ClientApp\src\app\services\municipality.service.ts" />
+    <None Remove="ClientApp\src\app\services\neighborhood.service.ts" />
+    <None Remove="ClientApp\src\app\services\province.service.ts" />
     <None Remove="ClientApp\src\app\services\warehouse.service.ts" />
   </ItemGroup>
 
@@ -41,7 +48,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\create-warehouse.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\neighborhood.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\municipality.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\province.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\warehouse.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\municipality.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\neighborhood.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\province.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\warehouse.service.ts" />
   </ItemGroup>
 
