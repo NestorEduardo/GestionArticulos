@@ -6,7 +6,6 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class WarehouseService {
   warehousesSubject: Subject<Array<Warehouse>>;
-  warehouseSubject: Subject<Warehouse>;
   
   constructor(private httpClient: HttpClient) {
     this.warehousesSubject = new BehaviorSubject<Array<Warehouse>>([]);
@@ -20,7 +19,7 @@ export class WarehouseService {
   public create(warehouse: Warehouse) {
     return this._create(warehouse);
   }
-
+  
   public update(warehouse: Warehouse) {
     return this._update(warehouse);
   }

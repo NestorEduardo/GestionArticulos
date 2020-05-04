@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Editar categor&iacute;as</h1>
+  <form [formGroup]="editCategoryForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="description">
+        Descripci&oacute;n:
+      </label>
+      <input class="form-control" [(ngModel)]="categoryForm.description" formControlName="description">
+    </div>
+    <div *ngIf="editCategoryForm.controls['description'].invalid && (editCategoryForm.controls['description'].dirty || editCategoryForm.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="editCategoryForm.controls['description'].errors.required">
+        El campo descripci&oacute;n es requerido.
+      </div>
+      <div *ngIf="editCategoryForm.controls['description'].hasError('minlength')">
+        El campo descripci&oacute;n debe estar entre 3 y 50 caracteres.
+      </div>
+      <div *ngIf="editCategoryForm.controls['description'].hasError('maxlength')">
+        El campo descripci&oacute;n debe estar entre 3 y 50 caracteres.
+      </div>
+    </div>
+    <div class="pull-right">
+      <button type="submit" [disabled]="editCategoryForm.invalid" class="btn btn-primary">Editar</button>
+    </div>
+  </form>
+</div>
+

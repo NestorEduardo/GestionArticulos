@@ -21,7 +21,7 @@ export class AddWarehouseComponent implements OnInit {
 
   constructor(private provinceService: ProvinceService, private municipalityService: MunicipalityService, private neighborhoodService: NeighborhoodService, private warehouseService: WarehouseService,
     private toastr: ToastrService, private router: Router, private formBuilder: FormBuilder) {
-    
+
     this.warehouseForm = new WarehouseForm();
     this.warehouse = new Warehouse();
   }

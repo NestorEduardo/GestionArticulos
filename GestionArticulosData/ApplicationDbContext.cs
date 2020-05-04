@@ -10,5 +10,6 @@ namespace GestionArticulosData
         public DbSet<Municipality> Municipalities { get; set; }
         public DbSet<Neighborhood> Neighborhoods { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
