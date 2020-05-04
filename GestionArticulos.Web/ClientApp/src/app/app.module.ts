@@ -27,6 +27,7 @@ import { DeleteCategoryComponent } from './delete-category/delete-category.compo
 import { ProductService } from './services/product.service';
 import { ProductComponent } from './product/product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     EditCategoryComponent,
     DeleteCategoryComponent,
     ProductComponent,
+    AddProductComponent,
     EditProductComponent
   ],
   imports: [
@@ -67,6 +69,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
       { path: 'edit-category/:id', component: EditCategoryComponent },
       { path: 'delete-category/:id', component: DeleteCategoryComponent },
       { path: 'product', component: ProductComponent },
+      { path: 'add-product', component: AddProductComponent },
       { path: 'edit-product/:id', component: EditProductComponent }
     ]),
     ToastrModule.forRoot()

@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Agregar art&iacute;culo</h1>
+  <form [formGroup]="addProductForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="description">
+        Descripci&oacute;n:
+      </label>
+      <input class="form-control" [(ngModel)]="productForm.description" formControlName="description">
+    </div>
+    <div *ngIf="addProductForm.controls['description'].invalid && (addProductForm.controls['description'].dirty || addProductForm.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="addProductForm.controls['description'].errors.required">
+        El campo descripci&oacute;n es requerido.
+      </div>
+      <div *ngIf="addProductForm.controls['description'].hasError('minlength')">
+        El campo descripci&oacute;n debe estar entre 3 y 50 caracteres.
+      </div>
+      <div *ngIf="addProductForm.controls['description'].hasError('maxlength')">
+        El campo descripci&oacute;n debe estar entre 3 y 50 caracteres.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">
+        Precio:
+      </label>
+      <input class="form-control" min="0" type="number" [(ngModel)]="productForm.price" formControlName="price" />
+    </div>
+    <div *ngIf="addProductForm.controls['price'].invalid && (addProductForm.controls['price'].dirty || addProductForm.controls['price'].touched)" class="alert alert-danger">
+      <div *ngIf="addProductForm.controls['price'].errors.required">
+        El campo precio es requerido.
+      </div>
+      <div *ngIf="addProductForm.controls['price'].errors?.min">
+        El campo precio debe estar entre 1 y 10000000
+      </div>
+      <div *ngIf="addProductForm.controls['price'].errors?.max">
+        El campo precio debe estar entre 1 y 1000000
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Categor&iacute;a</label>
+      <select formControlName="category" class="form-control" [(ngModel)]="productForm.categoryId">
+        <option selected value="0">[Seleccione una categor&iacute;a]</option>
+        <option *ngFor="let category of productForm.categories" [ngValue]="category.id">{{category.description}}</option>
+      </select>
+    </div>
+    <div *ngIf="addProductForm.controls['category'].invalid && (addProductForm.controls['category'].dirty || addProductForm.controls['category'].touched)" class="alert alert-danger">
+      <div *ngIf="addProductForm.controls['category'].errors?.min">
+        El campo categor&iacute;a es requerido.
+      </div>
+    </div>
+    <div class="pull-right">
+      <button type="submit" [disabled]="addProductForm.invalid" class="btn btn-primary">Agregar</button>
+    </div>
+  </form>
+</div>
+
