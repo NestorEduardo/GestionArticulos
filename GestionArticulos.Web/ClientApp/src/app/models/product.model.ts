@@ -7,4 +7,5 @@ export class Product {
   isActive: boolean;
   categoryId: number;
   category: Category
+  categories: Array<Category>
 }

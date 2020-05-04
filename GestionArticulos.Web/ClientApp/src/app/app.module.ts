@@ -26,6 +26,7 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { ProductService } from './services/product.service';
 import { ProductComponent } from './product/product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProductComponent } from './product/product.component';
     AddCategoryComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
-    ProductComponent
+    ProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -65,6 +67,7 @@ import { ProductComponent } from './product/product.component';
       { path: 'edit-category/:id', component: EditCategoryComponent },
       { path: 'delete-category/:id', component: DeleteCategoryComponent },
       { path: 'product', component: ProductComponent },
+      { path: 'edit-product/:id', component: EditProductComponent }
     ]),
     ToastrModule.forRoot()
   ],
