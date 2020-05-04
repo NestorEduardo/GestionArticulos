@@ -21,6 +21,9 @@ namespace GestionArticulos.Web.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll() => Ok(await warehouseService.GetAll());
 
+        [HttpGet("GetById/{id}")]
+        public async Task<IActionResult> GetAll(int id) => Ok(await warehouseService.GetById(id));
+
         [HttpPost("Add")]
         public IActionResult Add([FromBody] Warehouse warehouse)
         {
@@ -32,6 +35,27 @@ namespace GestionArticulos.Web.Controllers
             try
             {
                 return Ok(warehouseService.Create(warehouse));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Error = ex.Message
+                });
+            }
+        }
+
+        [HttpPost("Update")]
+        public IActionResult Update([FromBody] Warehouse warehouse)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(warehouseService.Update(warehouse, warehouse.Id));
             }
             catch (Exception ex)
             {

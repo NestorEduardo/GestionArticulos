@@ -19,4 +19,8 @@ export class NeighborhoodService {
     return this.httpClient.get<Array<Neighborhood>>(`api/Neighborhood/GetByMunicipalityId/${municipalityId}`)
       .subscribe(neighborhoods => this.neighborhoodSubject.next(neighborhoods), error => this.neighborhoodSubject.error(error));
   }
+
+  public getById(id: number) {
+    return this.httpClient.get<Array<Neighborhood>>(`api/Neighborhood/GetById/${id}`);
+  }
 }

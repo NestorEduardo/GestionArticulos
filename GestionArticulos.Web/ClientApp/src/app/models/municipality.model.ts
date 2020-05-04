@@ -5,4 +5,5 @@ export class Municipality {
   deletedAt: string;
   description: string;
   isActive: boolean;
+  provinceId: number;
 }

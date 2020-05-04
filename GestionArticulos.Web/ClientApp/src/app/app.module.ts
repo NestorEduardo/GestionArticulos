@@ -17,6 +17,7 @@ import { NeighborhoodService } from './services/neighborhood.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditWarehouseComponent } from './edit-warehouse/edit-warehouse.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FetchDataComponent,
     WarehouseComponent,
     AddWarehouseComponent,
-
+    EditWarehouseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,6 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'warehouse', component: WarehouseComponent },
       { path: 'add-warehouse', component: AddWarehouseComponent },
+      { path: 'edit-warehouse/:id', component: EditWarehouseComponent },
     ]),
     ToastrModule.forRoot()
   ],

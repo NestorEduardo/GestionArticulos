@@ -62,7 +62,13 @@ namespace GestionArticulos.Repository.Implementations
 
             return query;
         }
-        public T GetById(int id) => DbSet.Find(id);
+        public async Task<T> GetById(int id)
+        {
+            IQueryable<T> query = Database.Set<T>().Where(e => e.Id == id).AsQueryable();
+            Func<IQueryable<T>, IQueryable<T>> includes = DbContextHelper.GetNavigations<T>();
+            query = includes(query);
+            return await query.FirstOrDefaultAsync() ;
+        }
         public async Task<int> Insert(T entity)
         {
             Database.Set<T>().Add(entity);
@@ -70,7 +76,7 @@ namespace GestionArticulos.Repository.Implementations
         }
         public void SoftDelete(int id)
         {
-            T entity = GetById(id);
+            T entity = GetById(id).Result;
 
             if (entity == null)
             {
@@ -87,7 +93,7 @@ namespace GestionArticulos.Repository.Implementations
             Database.Entry(entity).State = EntityState.Modified;
             return entity;
         }
-        public T Update(T entity, int id)
+        public async Task<int> Update(T entity, int id)
         {
             EntityEntry<T> entry = Database.Entry(entity);
 
@@ -109,7 +115,7 @@ namespace GestionArticulos.Repository.Implementations
                 }
             }
 
-            return entity;
+            return await CommitChanges();
         }
 
         public async Task<List<T>> GetAll()

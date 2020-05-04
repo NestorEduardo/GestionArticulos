@@ -3,7 +3,7 @@ import { Province } from "./province.model";
 import { Municipality } from "./municipality.model";
 import { Neighborhood } from "./neighborhood.model";
 
-export class CreateWarehouse extends Warehouse {
+export class WarehouseForm extends Warehouse {
   provinceId: number;
   municipalityId: number;
   neighborhoodId: number;

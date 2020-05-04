@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WarehouseService } from '../services/warehouse.service';
 import { ProvinceService } from '../services/province.service';
-import { CreateWarehouse } from '../models/create-warehouse.model';
+import { WarehouseForm } from '../models/warehouse-form.model';
 import { MunicipalityService } from '../services/municipality.service';
 import { NeighborhoodService } from '../services/neighborhood.service';
 import { Warehouse } from '../models/warehouse.model';
@@ -15,21 +15,21 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 
 export class AddWarehouseComponent implements OnInit {
-  createWarehouse: CreateWarehouse;
+  warehouseForm: WarehouseForm;
   warehouse: Warehouse;
   addWarehouseForm: FormGroup;
 
   constructor(private provinceService: ProvinceService, private municipalityService: MunicipalityService, private neighborhoodService: NeighborhoodService, private warehouseService: WarehouseService,
     private toastr: ToastrService, private router: Router, private formBuilder: FormBuilder) {
     
-    this.createWarehouse = new CreateWarehouse();
+    this.warehouseForm = new WarehouseForm();
     this.warehouse = new Warehouse();
   }
 
   ngOnInit() {
     this.createForm();
     this.provinceService.getAll().subscribe(provinces => {
-      this.createWarehouse.provinces = provinces;
+      this.warehouseForm.provinces = provinces;
     },
       error => alert(error),
       () => console.log('Request completed')
@@ -78,10 +78,10 @@ export class AddWarehouseComponent implements OnInit {
   }
 
   private setValues() {
-    this.warehouse.address = this.createWarehouse.address;
-    this.warehouse.capacity = this.createWarehouse.capacity;
-    this.warehouse.description = this.createWarehouse.description;
-    this.warehouse.neighborhoodId = this.createWarehouse.neighborhoodId;
+    this.warehouse.address = this.warehouseForm.address;
+    this.warehouse.capacity = this.warehouseForm.capacity;
+    this.warehouse.description = this.warehouseForm.description;
+    this.warehouse.neighborhoodId = this.warehouseForm.neighborhoodId;
   }
 
   create() {
@@ -97,7 +97,7 @@ export class AddWarehouseComponent implements OnInit {
 
   onProvincehange(provinceId: number) {
     this.municipalityService.getByProvinceId(provinceId).subscribe(municipalities => {
-      this.createWarehouse.municipalities = municipalities;
+      this.warehouseForm.municipalities = municipalities;
     },
       error => alert(error),
       () => console.log('Request completed')
@@ -106,7 +106,7 @@ export class AddWarehouseComponent implements OnInit {
 
   onMunicipalityChange(municipalityId: number) {
     this.neighborhoodService.getByMunicipalityId(municipalityId).subscribe(neighborhoods => {
-      this.createWarehouse.neighborhoods = neighborhoods;
+      this.warehouseForm.neighborhoods = neighborhoods;
     },
       error => alert(error),
       () => console.log('Request completed')

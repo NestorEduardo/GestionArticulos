@@ -37,7 +37,7 @@ namespace GestionArticulos.Services.Implementations
 
             return taskResult;
         }
-        public TaskResult<T> Update(T entity)
+        public TaskResult<T> Update(T entity,int id)
         {
             TaskResult<T> taskResult = ValidateOnUpdate(entity);
 
@@ -45,7 +45,7 @@ namespace GestionArticulos.Services.Implementations
             {
                 try
                 {
-                    repository.Update(entity);
+                    repository.Update(entity, id);
                     repository.CommitChanges();
                     taskResult.AddMessage("Row updated successfully.");
                     taskResult.Data = entity;
@@ -80,6 +80,6 @@ namespace GestionArticulos.Services.Implementations
             return taskResult;
         }
         public virtual async Task<List<T>> GetAll() => await repository.GetAll();
-        public T GetById(int id) => repository.GetById(id);
+        public async Task<T> GetById(int id) => await repository.GetById(id);
     }
 }

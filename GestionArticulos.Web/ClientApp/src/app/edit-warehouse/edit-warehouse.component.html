@@ -1,20 +1,20 @@
 <div class="container">
-  <h1>Agregar almacenes</h1>
-  <form [formGroup]="addWarehouseForm" novalidate (ngSubmit)="onSubmit()">
+  <h1>Editar almac&eacute;n</h1>
+  <form [formGroup]="editWarehouseForm" novalidate (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="description">
         Descripci&oacute;n:
       </label>
       <input class="form-control" [(ngModel)]="warehouseForm.description" formControlName="description">
     </div>
-    <div *ngIf="addWarehouseForm.controls['description'].invalid && (addWarehouseForm.controls['description'].dirty || addWarehouseForm.controls['description'].touched)" class="alert alert-danger">
-      <div *ngIf="addWarehouseForm.controls['description'].errors.required">
+    <div *ngIf="editWarehouseForm.controls['description'].invalid && (editWarehouseForm.controls['description'].dirty || editWarehouseForm.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="editWarehouseForm.controls['description'].errors.required">
         El campo descripci&oacute;n es requerido.
       </div>
-      <div *ngIf="addWarehouseForm.controls['description'].hasError('minlength')">
+      <div *ngIf="editWarehouseForm.controls['description'].hasError('minlength')">
         El campo descripci&oacute;n debe estar entre 3 y 50 caracteres.
       </div>
-      <div *ngIf="addWarehouseForm.controls['description'].hasError('maxlength')">
+      <div *ngIf="editWarehouseForm.controls['description'].hasError('maxlength')">
         El campo descripci&oacute;n debe estar entre 3 y 50 caracteres.
       </div>
     </div>
@@ -24,14 +24,14 @@
       </label>
       <input class="form-control" min="0" type="number" [(ngModel)]="warehouseForm.capacity" formControlName="capacity" />
     </div>
-    <div *ngIf="addWarehouseForm.controls['capacity'].invalid && (addWarehouseForm.controls['capacity'].dirty || addWarehouseForm.controls['capacity'].touched)" class="alert alert-danger">
-      <div *ngIf="addWarehouseForm.controls['capacity'].errors.required">
+    <div *ngIf="editWarehouseForm.controls['capacity'].invalid && (editWarehouseForm.controls['capacity'].dirty || editWarehouseForm.controls['capacity'].touched)" class="alert alert-danger">
+      <div *ngIf="editWarehouseForm.controls['capacity'].errors.required">
         El campo capacidad es requerido.
       </div>
-      <div *ngIf="addWarehouseForm.controls['capacity'].errors?.min">
+      <div *ngIf="editWarehouseForm.controls['capacity'].errors?.min">
         El campo capacidad debe estar entre 1 y 1000000
       </div>
-      <div *ngIf="addWarehouseForm.controls['capacity'].errors?.max">
+      <div *ngIf="editWarehouseForm.controls['capacity'].errors?.max">
         El campo capacidad debe estar entre 1 y 1000000
       </div>
     </div>
@@ -42,8 +42,8 @@
         <option *ngFor="let province of warehouseForm.provinces" [ngValue]="province.id">{{province.description}}</option>
       </select>
     </div>
-    <div *ngIf="addWarehouseForm.controls['province'].invalid && (addWarehouseForm.controls['province'].dirty || addWarehouseForm.controls['province'].touched)" class="alert alert-danger">
-      <div *ngIf="addWarehouseForm.controls['province'].errors?.min">
+    <div *ngIf="editWarehouseForm.controls['province'].invalid && (editWarehouseForm.controls['province'].dirty || editWarehouseForm.controls['province'].touched)" class="alert alert-danger">
+      <div *ngIf="editWarehouseForm.controls['province'].errors?.min">
         El campo provincia es requerido.
       </div>
     </div>
@@ -55,8 +55,8 @@
         <option *ngFor="let municipality of warehouseForm.municipalities" [ngValue]="municipality.id">{{municipality.description}}</option>
       </select>
     </div>
-    <div *ngIf="addWarehouseForm.controls['municipality'].invalid && (addWarehouseForm.controls['municipality'].dirty || addWarehouseForm.controls['municipality'].touched)" class="alert alert-danger">
-      <div *ngIf="addWarehouseForm.controls['municipality'].errors?.min">
+    <div *ngIf="editWarehouseForm.controls['municipality'].invalid && (editWarehouseForm.controls['municipality'].dirty || editWarehouseForm.controls['municipality'].touched)" class="alert alert-danger">
+      <div *ngIf="editWarehouseForm.controls['municipality'].errors?.min">
         El campo municipio es requerido.
       </div>
     </div>
@@ -67,8 +67,8 @@
         <option *ngFor="let neighborhood of warehouseForm.neighborhoods" [ngValue]="neighborhood.id">{{neighborhood.description}}</option>
       </select>
     </div>
-    <div *ngIf="addWarehouseForm.controls['neighborhood'].invalid && (addWarehouseForm.controls['neighborhood'].dirty || addWarehouseForm.controls['neighborhood'].touched)" class="alert alert-danger">
-      <div *ngIf="addWarehouseForm.controls['neighborhood'].errors?.min">
+    <div *ngIf="editWarehouseForm.controls['neighborhood'].invalid && (editWarehouseForm.controls['neighborhood'].dirty || editWarehouseForm.controls['neighborhood'].touched)" class="alert alert-danger">
+      <div *ngIf="editWarehouseForm.controls['neighborhood'].errors?.min">
         El campo sector es requerido.
       </div>
     </div>
@@ -78,19 +78,19 @@
       </label>
       <input class="form-control" [(ngModel)]="warehouseForm.address" formControlName="address">
     </div>
-    <div *ngIf="addWarehouseForm.controls['address'].invalid && (addWarehouseForm.controls['address'].dirty || addWarehouseForm.controls['address'].touched)" class="alert alert-danger">
-      <div *ngIf="addWarehouseForm.controls['address'].errors.required">
+    <div *ngIf="editWarehouseForm.controls['address'].invalid && (editWarehouseForm.controls['address'].dirty || editWarehouseForm.controls['address'].touched)" class="alert alert-danger">
+      <div *ngIf="editWarehouseForm.controls['address'].errors.required">
         El campo direcci&oacute;n es requerido.
       </div>
-      <div *ngIf="addWarehouseForm.controls['address'].hasError('minlength')">
+      <div *ngIf="editWarehouseForm.controls['address'].hasError('minlength')">
         El campo direcci&oacute;n debe estar entre 3 y 200 caracteres.
       </div>
-      <div *ngIf="addWarehouseForm.controls['address'].hasError('maxlength')">
+      <div *ngIf="editWarehouseForm.controls['address'].hasError('maxlength')">
         El campo direcci&oacute;n debe estar entre 3 y 200 caracteres.
       </div>
     </div>
     <div class="pull-right">
-      <button type="submit" [disabled]="addWarehouseForm.invalid" class="btn btn-primary">Agregar</button>
+      <button type="submit" [disabled]="editWarehouseForm.invalid" class="btn btn-primary">Agregar</button>
     </div>
   </form>
 </div>

@@ -14,12 +14,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var warehouse_model_1 = require("./warehouse.model");
-var CreateWarehouse = /** @class */ (function (_super) {
-    __extends(CreateWarehouse, _super);
-    function CreateWarehouse() {
+var WarehouseForm = /** @class */ (function (_super) {
+    __extends(WarehouseForm, _super);
+    function WarehouseForm() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    return CreateWarehouse;
+    return WarehouseForm;
 }(warehouse_model_1.Warehouse));
-exports.CreateWarehouse = CreateWarehouse;
-//# sourceMappingURL=create-warehouse.model.js.map
+exports.WarehouseForm = WarehouseForm;
+//# sourceMappingURL=warehouse-form.model.js.map
