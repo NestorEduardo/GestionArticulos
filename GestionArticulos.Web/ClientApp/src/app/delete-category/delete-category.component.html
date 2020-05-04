@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Eliminar categor&iacute;a</h1>
+  <form novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="description">
+        Descripci&oacute;n:
+      </label>
+      <input readonly name="description" class="form-control" [(ngModel)]="categoryForm.description">
+    </div>
+    <div class="pull-right">
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+    </div>
+  </form>
+</div>

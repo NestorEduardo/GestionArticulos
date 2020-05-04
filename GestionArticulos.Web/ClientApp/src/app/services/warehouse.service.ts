@@ -15,7 +15,7 @@ export class WarehouseService {
     this._getAll();
     return this.warehousesSubject.asObservable();
   }
-
+  
   public create(warehouse: Warehouse) {
     return this._create(warehouse);
   }

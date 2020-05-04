@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -23,6 +23,7 @@ import { DeleteWarehouseComponent } from './delete-warehouse/delete-warehouse.co
 import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
     DeleteWarehouseComponent,
     CategoryComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    DeleteCategoryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -57,7 +59,8 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
       { path: 'delete-warehouse/:id', component: DeleteWarehouseComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
-      { path: 'edit-category/:id', component: EditCategoryComponent }
+      { path: 'edit-category/:id', component: EditCategoryComponent },
+      { path: 'delete-category/:id', component: DeleteCategoryComponent }
     ]),
     ToastrModule.forRoot()
   ],
