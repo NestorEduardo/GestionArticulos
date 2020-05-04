@@ -10,8 +10,8 @@ namespace GestionArticulos.Services.Abstract
     {
         Task<List<T>> GetAll();
         Task<T> GetById(int id);
-        TaskResult<T> Create(T entity);
-        TaskResult<T> Update(T entity, int id);
-        TaskResult Delete(T entity);
+        public Task<int> Create(T entity);
+        public Task<int> Update(T entity, int id);
+        public Task<int> Delete(int id);
     }
 }

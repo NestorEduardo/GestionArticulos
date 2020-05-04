@@ -18,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditWarehouseComponent } from './edit-warehouse/edit-warehouse.component';
+import { DeleteWarehouseComponent } from './delete-warehouse/delete-warehouse.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditWarehouseComponent } from './edit-warehouse/edit-warehouse.componen
     FetchDataComponent,
     WarehouseComponent,
     AddWarehouseComponent,
-    EditWarehouseComponent
+    EditWarehouseComponent,
+    DeleteWarehouseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,6 +47,7 @@ import { EditWarehouseComponent } from './edit-warehouse/edit-warehouse.componen
       { path: 'warehouse', component: WarehouseComponent },
       { path: 'add-warehouse', component: AddWarehouseComponent },
       { path: 'edit-warehouse/:id', component: EditWarehouseComponent },
+      { path: 'delete-warehouse/:id', component: DeleteWarehouseComponent },
     ]),
     ToastrModule.forRoot()
   ],

@@ -17,68 +17,9 @@ namespace GestionArticulos.Services.Implementations
         protected abstract TaskResult<T> ValidateOnCreate(T entity);
         protected abstract TaskResult<T> ValidateOnDelete(T entity);
         protected abstract TaskResult<T> ValidateOnUpdate(T entity);
-        public TaskResult<T> Create(T entity)
-        {
-            TaskResult<T> taskResult = ValidateOnCreate(entity);
-
-            if (taskResult.Success)
-            {
-                try
-                {
-                    repository.Insert(entity);
-                    repository.CommitChanges();
-                    taskResult.AddMessage("Row added successfully.");
-                }
-                catch (Exception ex)
-                {
-                    taskResult.AddErrorMessage(ex.Message);
-                }
-            }
-
-            return taskResult;
-        }
-        public TaskResult<T> Update(T entity,int id)
-        {
-            TaskResult<T> taskResult = ValidateOnUpdate(entity);
-
-            if (taskResult.Success)
-            {
-                try
-                {
-                    repository.Update(entity, id);
-                    repository.CommitChanges();
-                    taskResult.AddMessage("Row updated successfully.");
-                    taskResult.Data = entity;
-                }
-                catch (Exception ex)
-                {
-                    taskResult.AddErrorMessage(ex.Message);
-                }
-            }
-
-            return taskResult;
-        }
-        public TaskResult Delete(T entity)
-        {
-            TaskResult<T> taskResult = ValidateOnDelete(entity);
-
-            if (taskResult.Success)
-            {
-                try
-                {
-                    repository.SoftDelete(entity.Id);
-                    repository.CommitChanges();
-                    taskResult.AddMessage("Row deleted successfully.");
-                    taskResult.Data = entity;
-                }
-                catch (Exception ex)
-                {
-                    taskResult.AddErrorMessage(ex.Message);
-                }
-            }
-
-            return taskResult;
-        }
+        public async Task<int> Create(T entity) => await repository.Insert(entity);
+        public async Task<int> Update(T entity, int id) => await repository.Update(entity, id);
+        public async Task<int> Delete(int id) => await repository.SoftDelete(id);
         public virtual async Task<List<T>> GetAll() => await repository.GetAll();
         public async Task<T> GetById(int id) => await repository.GetById(id);
     }

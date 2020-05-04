@@ -31,7 +31,11 @@
           <input type="button" class="btn btn-warning" value="Editar" />
         </a>
       </td>
-      <td><input type="button" class="btn btn-danger" value="Eliminar" /></td>
+      <td>
+        <a [href]="'/delete-warehouse/' + warehouse.id">
+          <input type="button" class="btn btn-danger" value="Eliminar" />
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

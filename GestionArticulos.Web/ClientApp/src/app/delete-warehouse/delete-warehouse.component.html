@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Eliminar almac&eacute;n</h1>
+  <form novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="description">
+        Descripci&oacute;n:
+      </label>
+      <input readonly name="description" class="form-control" [(ngModel)]="warehouseForm.description">
+    </div>
+    <div class="form-group">
+      <label for="capacity">
+        Capacidad:
+      </label>
+      <input readonly name="capacity" class="form-control" min="0" type="number" [(ngModel)]="warehouseForm.capacity"/>
+    </div>
+    <div class="form-group">
+      <label for="province">Provincia</label>
+      <select readonly name="provinceId"  (change)="onProvincehange(warehouseForm.provinceId)" class="form-control" [(ngModel)]="warehouseForm.provinceId">
+        <option selected value="0">[Seleccione una provincia]</option>
+        <option *ngFor="let province of warehouseForm.provinces" [ngValue]="province.id">{{province.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="municipality">Municipio</label>
+      <select readonly name="municipalityId" (change)="onMunicipalityChange(warehouseForm.municipalityId)" class="form-control" [(ngModel)]="warehouseForm.municipalityId">
+        <option selected value="0">[Seleccione una municipio]</option>
+        <option *ngFor="let municipality of warehouseForm.municipalities" [ngValue]="municipality.id">{{municipality.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="municipality">Sector</label>
+      <select disabled name="neighborhoodId" class="form-control" [(ngModel)]="warehouseForm.neighborhoodId">
+        <option selected value="0">[Seleccione un sector]</option>
+        <option *ngFor="let neighborhood of warehouseForm.neighborhoods" [ngValue]="neighborhood.id">{{neighborhood.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="address">
+        Direcci&oacute;n:
+      </label>
+      <input readonly name="address" class="form-control" [(ngModel)]="warehouseForm.address" />
+    </div>
+    <div class="pull-right">
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+    </div>
+  </form>
+</div>

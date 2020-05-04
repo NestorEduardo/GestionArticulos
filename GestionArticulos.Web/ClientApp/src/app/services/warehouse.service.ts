@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
 export class WarehouseService {
   warehousesSubject: Subject<Array<Warehouse>>;
   warehouseSubject: Subject<Warehouse>;
-
+  
   constructor(private httpClient: HttpClient) {
     this.warehousesSubject = new BehaviorSubject<Array<Warehouse>>([]);
   }
@@ -24,7 +24,7 @@ export class WarehouseService {
   public update(warehouse: Warehouse) {
     return this._update(warehouse);
   }
-
+  
   public getById(id: number) {
     return this._getById(id);
   }
@@ -44,5 +44,9 @@ export class WarehouseService {
 
   private _getById(id: number) {
     return this.httpClient.get<Warehouse>(`api/Warehouse/GetById/${id}`);
+  }
+
+  public delete(warehouse: Warehouse) {
+    return this.httpClient.post('api/Warehouse/Delete', warehouse);
   }
 }

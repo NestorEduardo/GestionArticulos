@@ -30,6 +30,10 @@ export class AddWarehouseComponent implements OnInit {
     this.createForm();
     this.provinceService.getAll().subscribe(provinces => {
       this.warehouseForm.provinces = provinces;
+      this.warehouseForm.provinceId = 0;
+      this.warehouseForm.municipalityId = 0;
+      this.warehouseForm.neighborhoodId = 0;
+
     },
       error => alert(error),
       () => console.log('Request completed')

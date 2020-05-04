@@ -74,24 +74,30 @@ namespace GestionArticulos.Repository.Implementations
             Database.Set<T>().Add(entity);
             return await CommitChanges();
         }
-        public void SoftDelete(int id)
+        public async Task<int> SoftDelete(int id)
         {
-            T entity = GetById(id).Result;
-
-            if (entity == null)
-            {
-                throw new Exception("This object does not exist.");
-            }
-
+            T entity =  await GetById(id);
             entity.DeletedAt = DateTime.UtcNow;
             entity.IsActive = false;
-            Update(entity);
+            Database.Entry(entity).State = EntityState.Modified;
+
+            try
+            {
+               return await Database.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            return 1;
         }
-        public T Update(T entity)
+        public async Task<int> Update(T entity)
         {
             Database.Set<T>().Attach(entity);
             Database.Entry(entity).State = EntityState.Modified;
-            return entity;
+            return await CommitChanges();
         }
         public async Task<int> Update(T entity, int id)
         {
@@ -120,7 +126,7 @@ namespace GestionArticulos.Repository.Implementations
 
         public async Task<List<T>> GetAll()
         {
-            IQueryable<T> query = Database.Set<T>().AsQueryable();
+            IQueryable<T> query = Database.Set<T>().Where(e => e.IsActive).AsQueryable();
             Func<IQueryable<T>, IQueryable<T>> includes = DbContextHelper.GetNavigations<T>();
             query = includes(query);
             return await query.ToListAsync();
