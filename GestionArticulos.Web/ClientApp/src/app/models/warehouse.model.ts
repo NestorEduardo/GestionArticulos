@@ -6,8 +6,3 @@ export class Warehouse {
     isActive: boolean;
     neighborhoodId: number
 }
-
-
-export class Test{
-  description: string;
-}

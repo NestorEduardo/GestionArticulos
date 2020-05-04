@@ -12,7 +12,7 @@ export class WarehouseComponent implements OnInit  {
 
   constructor(private warehouseService: WarehouseService) {
   }
-
+  
   ngOnInit() {
     this.warehouseService.getAll().subscribe(
       warehouses => {

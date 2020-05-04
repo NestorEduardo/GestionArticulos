@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Warehouse, Test } from "../models/warehouse.model";
+import { Warehouse } from "../models/warehouse.model";
 import { BehaviorSubject, Subject } from "rxjs";
 import { Injectable } from "@angular/core";
 
