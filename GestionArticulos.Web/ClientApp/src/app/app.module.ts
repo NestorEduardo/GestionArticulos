@@ -24,6 +24,8 @@ import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
+import { ProductService } from './services/product.service';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { DeleteCategoryComponent } from './delete-category/delete-category.compo
     CategoryComponent,
     AddCategoryComponent,
     EditCategoryComponent,
-    DeleteCategoryComponent
+    DeleteCategoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -60,12 +63,13 @@ import { DeleteCategoryComponent } from './delete-category/delete-category.compo
       { path: 'category', component: CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'edit-category/:id', component: EditCategoryComponent },
-      { path: 'delete-category/:id', component: DeleteCategoryComponent }
+      { path: 'delete-category/:id', component: DeleteCategoryComponent },
+      { path: 'product', component: ProductComponent },
     ]),
     ToastrModule.forRoot()
   ],
 
-  providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService],
+  providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

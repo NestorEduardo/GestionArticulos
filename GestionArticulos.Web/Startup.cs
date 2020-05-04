@@ -19,7 +19,6 @@ namespace GestionArticulos.Web
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -29,11 +28,13 @@ namespace GestionArticulos.Web
             services.AddTransient<IMunicipalityService, MunicipalityService>();
             services.AddTransient<INeighborhoodService, NeighborhoodService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddTransient<IProvinceRepository, ProvinceRepository>();
             services.AddTransient<IMunicipalityRepository, MunicipalityRepository>();
             services.AddTransient<INeighborhoodRepository, NeighborhoodRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration =>
             {
