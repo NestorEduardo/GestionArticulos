@@ -5,7 +5,7 @@ Bienvenido al proyecto de gestión de artículos:
 Este proyecto implementa una Web Api RESTful y es consumido por una aplicación de Angular, utilizando buenas practicas y separación de conceptos.
 
 ## Tecnologías usadas
-- **Backend:** C#, ASP.NET MVC Core
+- **Backend:** C# 8, ASP.NET MVC Core
 - **Frontend:** Angular
 
 ### Pasos para correr
