@@ -12,21 +12,4 @@ Este proyecto implementa una Web Api RESTful y es consumido por una aplicación 
 ### Clonar el proyecto
 - git clone https://github.com/NestorEduardo/GestionArticulos.git
 - Cambiar la propiedad ConnectionString, del archivo appsettings.json, en el proyecto GestionArticulos.Web, con el string de conección correspondiente a la pc.
-
-### Respuesta
-<img alt='Ejemplo de llamada a la api' src="https://currencyquotation.azurewebsites.net/assets/api-request-example.PNG" />
-
-- **updated:** Fecha de la última actualización de la cotización
-- **source:** Moneda base de la cotización
-- **target:** Moneda a cotizar
-- **quantity:** Unidad de cotización
-- **amount:** Cotización
-
-## Agregar monedas a cotizar en la aplicación web
-Para agregar monedas en la aplicación web, dirigirse al archivo **config.ts** ubicado en la carpeta **src\app\common** de la aplicación Angular
-
-Para ello necesitara saber el código de la moneda
-<a href="https://es.wikipedia.org/wiki/ISO_4217#C%C3%B3digos_de_divisa_ISO_4217[nota_1]%E2%80%8B" target="_blank">ISO 4217</a>
-
-<img alt='Ejemplo de llamada a la api' src="https://currencyquotation.azurewebsites.net/assets/currencies-file-exampe.PNG" />
-
+- Ejecutar npm install en el proyecto GestionArticulos.Web\ClientApp
