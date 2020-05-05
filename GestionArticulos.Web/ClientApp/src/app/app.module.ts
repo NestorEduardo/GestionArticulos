@@ -33,6 +33,8 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
 import { WarehouseProductComponent } from './warehouse-product/warehouse-product.component';
 import { AddWarehouseProductComponent } from './add-warehouse-product/add-warehouse-product.component';
 import { RemoveWarehouseProductComponent } from './remove-warehouse-product/remove-warehouse-product.component';
+import { MovementService } from './services/movement.service';
+import { MovementComponent } from './movement/movement.component';
 
 @NgModule({
     declarations: [
@@ -55,7 +57,8 @@ import { RemoveWarehouseProductComponent } from './remove-warehouse-product/remo
         DeleteProductComponent,
         WarehouseProductComponent,
         AddWarehouseProductComponent,
-        RemoveWarehouseProductComponent
+        RemoveWarehouseProductComponent,
+        MovementComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -83,12 +86,13 @@ import { RemoveWarehouseProductComponent } from './remove-warehouse-product/remo
             { path: 'delete-product/:id', component: DeleteProductComponent },
             { path: 'warehouse-product/:id', component: WarehouseProductComponent },
             { path: 'add-warehouse-product/:id', component: AddWarehouseProductComponent },
-            { path: 'remove-warehouse-product/:id', component: RemoveWarehouseProductComponent }
+            { path: 'remove-warehouse-product/:id', component: RemoveWarehouseProductComponent },
+            { path: 'movement', component: MovementComponent }
         ]),
         ToastrModule.forRoot()
     ],
 
-    providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService, WarehouseProductService],
+    providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService, WarehouseProductService, MovementService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

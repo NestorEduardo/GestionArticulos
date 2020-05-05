@@ -21,6 +21,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0-preview1.19506.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0-preview1.19506.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
@@ -34,6 +39,8 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\add-warehouse-product.model.ts" />
     <None Remove="ClientApp\src\app\models\category.model.ts" />
+    <None Remove="ClientApp\src\app\models\movement-type.model.ts" />
+    <None Remove="ClientApp\src\app\models\movement.model.ts" />
     <None Remove="ClientApp\src\app\models\municipality.model.ts" />
     <None Remove="ClientApp\src\app\models\neighborhood.model.ts" />
     <None Remove="ClientApp\src\app\models\product.model.ts" />
@@ -43,6 +50,7 @@
     <None Remove="ClientApp\src\app\models\warehouse-product.viewmodel.ts" />
     <None Remove="ClientApp\src\app\models\warehouse.model.ts" />
     <None Remove="ClientApp\src\app\services\category.service.ts" />
+    <None Remove="ClientApp\src\app\services\movement.service.ts" />
     <None Remove="ClientApp\src\app\services\municipality.service.ts" />
     <None Remove="ClientApp\src\app\services\neighborhood.service.ts" />
     <None Remove="ClientApp\src\app\services\product.service.ts" />
@@ -58,6 +66,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\add-warehouse-product.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\movement-type.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\movement.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-product.viewmodel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\product.model.ts" />
@@ -72,6 +82,9 @@
     <TypeScriptCompile Include="ClientApp\src\app\services\province.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\category.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\product.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\movement.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\services\warehouse-product.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\warehouse.service.ts" />
   </ItemGroup>

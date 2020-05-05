@@ -13,9 +13,11 @@ namespace GestionArticulos.Repository.Abstract
     public class WarehouseProductRepository : BaseRepository<WarehouseProduct>, IWarehouseProductRepository
     {
         private readonly IWarehouseRepository warehouseRepository;
-        public WarehouseProductRepository(ApplicationDbContext database, IWarehouseRepository warehouseRepository) : base(database)
+        private readonly IMovementRepository movementRepository;
+        public WarehouseProductRepository(ApplicationDbContext database, IWarehouseRepository warehouseRepository, IMovementRepository movementRepository) : base(database)
         {
             this.warehouseRepository = warehouseRepository;
+            this.movementRepository = movementRepository;
         }
         public async Task<WarehouseProductViewModel> GetByWarehouseId(int warehouseId)
         {
@@ -51,14 +53,28 @@ namespace GestionArticulos.Repository.Abstract
                 Database.Entry(warehouseProduct).State = EntityState.Modified;
             }
 
+            await movementRepository.AddMovement("ENTRADA", new Movement()
+            {
+                ProductId = warehouseProduct.ProductId,
+                WarehouseId = warehouseProduct.WarehouseId,
+                Count = count
+            });
+
             return await Database.SaveChangesAsync();
         }
-
         public async Task<int> RemoveProduct(int warehouseId, int productId, int count)
         {
             WarehouseProduct warehouseProduct = Database.WarehouseProducts.Where(wp => wp.WarehouseId == warehouseId && wp.ProductId == productId).FirstOrDefault();
             warehouseProduct.Count -= count;
             Database.Entry(warehouseProduct).State = EntityState.Modified;
+
+            await movementRepository.AddMovement("SALIDA", new Movement()
+            {
+                ProductId = warehouseProduct.ProductId,
+                WarehouseId = warehouseProduct.WarehouseId,
+                Count = count
+            });
+
             return await Database.SaveChangesAsync();
         }
         public async Task<int> GetRemainingCapacityByWarehouseId(int warehouseId)

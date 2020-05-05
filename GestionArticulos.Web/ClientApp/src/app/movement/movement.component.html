@@ -1,0 +1,21 @@
+<h1>Movimientos</h1>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Almac&eacute;n</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Tipo de movimiento</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let movement of movements">
+    <tr>
+      <td>{{movement.warehouse.description}}</td>
+      <td>{{movement.product.description}}</td>
+      <td>{{movement.movementType.description}}</td>
+
+      <td>{{movement.count}}</td>
+    </tr>
+  </tbody>
+</table>

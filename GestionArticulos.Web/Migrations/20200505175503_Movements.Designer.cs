@@ -4,14 +4,16 @@ using GestionArticulosData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GestionArticulos.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200505175503_Movements")]
+    partial class Movements
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,9 +57,6 @@ namespace GestionArticulos.Web.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -67,7 +66,10 @@ namespace GestionArticulos.Web.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MovementTypeId")
+                    b.Property<int?>("MovementTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovementypeId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
@@ -336,9 +338,7 @@ namespace GestionArticulos.Web.Migrations
                 {
                     b.HasOne("GestionArticulos.Core.Domain.MovementType", "MovementType")
                         .WithMany()
-                        .HasForeignKey("MovementTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MovementTypeId");
 
                     b.HasOne("GestionArticulos.Core.Domain.Product", "Product")
                         .WithMany()
