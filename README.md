@@ -8,7 +8,6 @@ Este proyecto implementa una Web Api RESTful y es consumido por una aplicación 
 - **Backend:** C#, ASP.NET MVC Core
 - **Frontend:** Angular
 
-## Pasos para correr
 ### Clonar el proyecto
 - git clone https://github.com/NestorEduardo/GestionArticulos.git
 - Cambiar la propiedad ConnectionString, del archivo appsettings.json, en el proyecto GestionArticulos.Web, con el string de conección correspondiente a la pc.
