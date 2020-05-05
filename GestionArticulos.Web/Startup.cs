@@ -10,6 +10,8 @@ using GestionArticulos.Services.Abstract;
 using GestionArticulos.Services.Implementations;
 using GestionArticulos.Repository.Abstract;
 using GestionArticulos.Repository.Implementations;
+using GestionArticulos.Web.Framework.Configuration;
+using System;
 
 namespace GestionArticulos.Web
 {
@@ -49,8 +51,9 @@ namespace GestionArticulos.Web
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(dbConnString, builder => builder.MigrationsAssembly(typeof(Startup).Assembly.FullName)));
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -76,6 +79,8 @@ namespace GestionArticulos.Web
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+            DbInitializer.Seed(serviceProvider.GetRequiredService<ApplicationDbContext>());
 
             app.UseSpa(spa =>
             {
