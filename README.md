@@ -10,7 +10,8 @@ Este proyecto implementa una Web Api RESTful y es consumido por una aplicación 
 
 ## Pasos para correr
 ### Clonar el proyecto
-- **git clone https://github.com/NestorEduardo/GestionArticulos.git
+- git clone https://github.com/NestorEduardo/GestionArticulos.git
+- Cambiar la propiedad ConnectionString, del archivo appsettings.json, en el proyecto GestionArticulos.Web, con el string de conección correspondiente a la pc.
 
 ### Respuesta
 <img alt='Ejemplo de llamada a la api' src="https://currencyquotation.azurewebsites.net/assets/api-request-example.PNG" />
