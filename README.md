@@ -1,4 +1,4 @@
-# Currency Quotation
+# Gestión de Artículos
 
 Bienvenido al proyecto de gestión de artículos:
 
@@ -10,8 +10,7 @@ Este proyecto implementa una Web Api RESTful y es consumido por una aplicación 
 
 ## Pasos para correr
 ### Clonar el proyecto
-- **Verbo http:** GET
-- **Url:** https://[[hostname]]/Quotation/USD
+- **git clone https://github.com/NestorEduardo/GestionArticulos.git
 
 ### Respuesta
 <img alt='Ejemplo de llamada a la api' src="https://currencyquotation.azurewebsites.net/assets/api-request-example.PNG" />
