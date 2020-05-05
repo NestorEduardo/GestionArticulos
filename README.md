@@ -8,7 +8,7 @@ Este proyecto implementa una Web Api RESTful y es consumido por una aplicación 
 - **Backend:** C#, ASP.NET MVC Core
 - **Frontend:** Angular
 
-### Clonar el proyecto
+### Pasos para correr
 - Abrir la terminal y escribir git clone https://github.com/NestorEduardo/GestionArticulos.git
 - Cambiar la propiedad ConnectionString, del archivo appsettings.json, en el proyecto GestionArticulos.Web, con el ConnectionString correspondiente a la pc.
 - Abir la terminal en el proyecto GestionArticulos.Web\ClientApp y ejecutar npm install.
