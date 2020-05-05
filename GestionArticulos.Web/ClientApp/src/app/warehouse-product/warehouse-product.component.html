@@ -3,11 +3,19 @@
 <p>Productos resgistrados: {{warehouseProductsViewModel.usedCapacity}}</p>
 <p>Capacidad restante: {{warehouse.capacity - warehouseProductsViewModel.usedCapacity}}</p>
 
-<div>
-  <a [href]="'/warehouse-product'">
-    <input type="button" class="btn btn-primary" value="Agregar" />
-  </a>
+<div class="row">
+  <div class="col-3">
+    <a [href]="'/add-warehouse-product/' + warehouse.id">
+      <input type="button" class="btn btn-primary" value="Dar entrada" />
+    </a>
+  </div>
+  <div class="col-3">
+    <a [href]="'/remove-warehouse-product/' + warehouse.id">
+      <input type="button" class="btn btn-danger" value="Dar salida" />
+    </a>
+  </div>
 </div>
+
 <br />
 <table class="table">
   <thead>

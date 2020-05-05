@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Dar salida a art&iacute;culo a {{warehouse.description}}</h1>
+  <form [formGroup]="addWarehouseProductForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="count">
+        Cantidad:
+      </label>
+      <input class="form-control" min="0" type="number" [(ngModel)]="warehouseProductForm.count" formControlName="count" />
+    </div>
+    <div *ngIf="addWarehouseProductForm.controls['count'].invalid && (addWarehouseProductForm.controls['count'].dirty || addWarehouseProductForm.controls['count'].touched)" class="alert alert-danger">
+      <div *ngIf="addWarehouseProductForm.controls['count'].errors.required">
+        El campo cantidad es requerido.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Art&iacute;culo</label>
+      <select formControlName="product" class="form-control" [(ngModel)]="warehouseProductForm.productId">
+        <option selected value="0">[Seleccione una art&iacute;culo]</option>
+        <option *ngFor="let product of warehouseProductForm.products" [ngValue]="product.product.id">{{product.product.description}}</option>
+      </select>
+    </div>
+    <div *ngIf="addWarehouseProductForm.controls['product'].invalid && (addWarehouseProductForm.controls['product'].dirty || addWarehouseProductForm.controls['product'].touched)" class="alert alert-danger">
+      <div *ngIf="addWarehouseProductForm.controls['product'].errors?.min">
+        El campo art&iacute;culo es requerido.
+      </div>
+    </div>
+    <div class="pull-right">
+      <button type="submit" [disabled]="addWarehouseProductForm.invalid" class="btn btn-primary">Agregar</button>
+    </div>
+  </form>
+</div>
+
+
+

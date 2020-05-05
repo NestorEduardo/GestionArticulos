@@ -1,7 +1,6 @@
 ﻿using GestionArticulos.Core.Domain;
 using GestionArticulos.Repository.Abstract;
 using System.Collections.Generic;
-using GestionArticulos.Services.Framework;
 using System.Threading.Tasks;
 
 namespace GestionArticulos.Services.Abstract

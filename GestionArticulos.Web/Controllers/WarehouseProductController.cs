@@ -1,5 +1,6 @@
 ﻿using GestionArticulos.Core.Domain;
 using GestionArticulos.Services.Abstract;
+using GestionArticulos.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace GestionArticulos.Web.Controllers
         [HttpGet("GetByWarehouseId/{id}")]
         public async Task<IActionResult> GetByWarehouseId(int id) => Ok(await warehouseProductService.GetByWarehouseId(id));
 
-        [HttpPost("AddProduct")]
-        public async Task<IActionResult> Add([FromBody] Warehouse warehouse, Product product, int count)
+        [HttpPost("addWarehouseProduct")]
+        public async Task<IActionResult> Add([FromBody] AddWarehouseProductViewModel addWarehouseProductViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -26,7 +27,7 @@ namespace GestionArticulos.Web.Controllers
 
             try
             {
-                return Ok(await warehouseProductService.AddProduct(warehouse.Id, product.Id, count));
+                return Ok(await warehouseProductService.AddProduct(addWarehouseProductViewModel.WarehouseId, addWarehouseProductViewModel.ProductId, addWarehouseProductViewModel.Count));
             }
             catch (Exception ex)
             {
@@ -36,8 +37,9 @@ namespace GestionArticulos.Web.Controllers
                 });
             }
         }
+
         [HttpPost("RemoveProduct")]
-        public async Task<IActionResult> Remove([FromBody] Warehouse warehouse, Product product, int count)
+        public async Task<IActionResult> Remove([FromBody] AddWarehouseProductViewModel addWarehouseProductViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -46,7 +48,7 @@ namespace GestionArticulos.Web.Controllers
 
             try
             {
-                return Ok(await warehouseProductService.RemoveProduct(warehouse.Id, product.Id, count));
+                return Ok(await warehouseProductService.RemoveProduct(addWarehouseProductViewModel.WarehouseId, addWarehouseProductViewModel.ProductId, addWarehouseProductViewModel.Count));
             }
             catch (Exception ex)
             {
@@ -55,6 +57,18 @@ namespace GestionArticulos.Web.Controllers
                     Error = ex.Message
                 });
             }
+        }
+
+        [HttpGet("GetProductCountByWarehouse/{warehouseId}/{productId}")]
+        public async Task<IActionResult> GetProductCountByWarehouse(int warehouseId, int productId)
+        {
+            return Ok(await warehouseProductService.GetProductCountByWarehouse(warehouseId, productId));
+        }
+
+        [HttpGet("GetRemainingCapacityByWarehouse/{warehouseId}")]
+        public async Task<IActionResult> GetRemainingCapacityByWarehouse(int warehouseId)
+        {
+            return Ok(await warehouseProductService.GetRemainingCapacityByWarehouseId(warehouseId));
         }
     }
 }

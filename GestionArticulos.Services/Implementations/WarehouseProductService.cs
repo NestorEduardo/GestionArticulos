@@ -17,5 +17,8 @@ namespace GestionArticulos.Services.Implementations
         protected override TaskResult<WarehouseProduct> ValidateOnCreate(WarehouseProduct warehouseProduct) => new TaskResult<WarehouseProduct>();
         protected override TaskResult<WarehouseProduct> ValidateOnDelete(WarehouseProduct warehouseProduct) => new TaskResult<WarehouseProduct>();
         protected override TaskResult<WarehouseProduct> ValidateOnUpdate(WarehouseProduct warehouseProduct) => new TaskResult<WarehouseProduct>();
+        public Task<int> GetRemainingCapacityByWarehouseId(int warehouseId) => warehouseProductRepository.GetRemainingCapacityByWarehouseId(warehouseId);
+
+        public Task<int> GetProductCountByWarehouse(int warehouseId, int productId) => warehouseProductRepository.GetProductCountByWarehouse(warehouseId, productId);
     }
 }

@@ -10,5 +10,7 @@ namespace GestionArticulos.Services.Abstract
        public Task<WarehouseProductViewModel> GetByWarehouseId(int warehouseId);
         public Task<int> AddProduct(int warehouseId, int productId, int count);
         public Task<int> RemoveProduct(int warehouseId, int productId, int count);
+        public Task<int> GetRemainingCapacityByWarehouseId(int warehouseId);
+        public Task<int> GetProductCountByWarehouse(int warehouseId, int productId);
     }
 }

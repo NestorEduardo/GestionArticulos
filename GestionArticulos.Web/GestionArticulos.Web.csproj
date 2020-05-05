@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,6 +6,7 @@
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
+    <LangVersion>8.0</LangVersion>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
 
     <!-- Set this to true if you enable server-side prerendering -->
@@ -31,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\add-warehouse-product.model.ts" />
     <None Remove="ClientApp\src\app\models\category.model.ts" />
     <None Remove="ClientApp\src\app\models\municipality.model.ts" />
     <None Remove="ClientApp\src\app\models\neighborhood.model.ts" />
@@ -55,6 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\add-warehouse-product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-product.viewmodel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\product.model.ts" />

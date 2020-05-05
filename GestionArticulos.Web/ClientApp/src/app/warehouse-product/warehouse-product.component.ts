@@ -20,7 +20,7 @@ export class WarehouseProductComponent implements OnInit  {
     this.warehouse = new Warehouse();
   }
   
-  ngOnInit() {
+    ngOnInit() {
      this.id = parseInt(this.route.snapshot.paramMap.get('id'));
 
     this.warehouseProductService.getByWarehouseId(this.id).subscribe(

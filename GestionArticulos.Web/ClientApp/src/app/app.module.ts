@@ -31,58 +31,64 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { WarehouseProductComponent } from './warehouse-product/warehouse-product.component';
+import { AddWarehouseProductComponent } from './add-warehouse-product/add-warehouse-product.component';
+import { RemoveWarehouseProductComponent } from './remove-warehouse-product/remove-warehouse-product.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
-    WarehouseComponent,
-    AddWarehouseComponent,
-    EditWarehouseComponent,
-    DeleteWarehouseComponent,
-    CategoryComponent,
-    AddCategoryComponent,
-    EditCategoryComponent,
-    DeleteCategoryComponent,
-    ProductComponent,
-    AddProductComponent,
-    EditProductComponent,
-    DeleteProductComponent,
-    WarehouseProductComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'warehouse', component: WarehouseComponent },
-      { path: 'add-warehouse', component: AddWarehouseComponent },
-      { path: 'edit-warehouse/:id', component: EditWarehouseComponent },
-      { path: 'delete-warehouse/:id', component: DeleteWarehouseComponent },
-      { path: 'category', component: CategoryComponent },
-      { path: 'add-category', component: AddCategoryComponent },
-      { path: 'edit-category/:id', component: EditCategoryComponent },
-      { path: 'delete-category/:id', component: DeleteCategoryComponent },
-      { path: 'product', component: ProductComponent },
-      { path: 'add-product', component: AddProductComponent },
-      { path: 'edit-product/:id', component: EditProductComponent },
-      { path: 'delete-product/:id', component: DeleteProductComponent },
-      { path: 'warehouse-product/:id', component: WarehouseProductComponent }
-    ]),
-    ToastrModule.forRoot()
-  ],
+    declarations: [
+        AppComponent,
+        NavMenuComponent,
+        HomeComponent,
+        CounterComponent,
+        FetchDataComponent,
+        WarehouseComponent,
+        AddWarehouseComponent,
+        EditWarehouseComponent,
+        DeleteWarehouseComponent,
+        CategoryComponent,
+        AddCategoryComponent,
+        EditCategoryComponent,
+        DeleteCategoryComponent,
+        ProductComponent,
+        AddProductComponent,
+        EditProductComponent,
+        DeleteProductComponent,
+        WarehouseProductComponent,
+        AddWarehouseProductComponent,
+        RemoveWarehouseProductComponent
+    ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forRoot([
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'counter', component: CounterComponent },
+            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'warehouse', component: WarehouseComponent },
+            { path: 'add-warehouse', component: AddWarehouseComponent },
+            { path: 'edit-warehouse/:id', component: EditWarehouseComponent },
+            { path: 'delete-warehouse/:id', component: DeleteWarehouseComponent },
+            { path: 'category', component: CategoryComponent },
+            { path: 'add-category', component: AddCategoryComponent },
+            { path: 'edit-category/:id', component: EditCategoryComponent },
+            { path: 'delete-category/:id', component: DeleteCategoryComponent },
+            { path: 'product', component: ProductComponent },
+            { path: 'add-product', component: AddProductComponent },
+            { path: 'edit-product/:id', component: EditProductComponent },
+            { path: 'delete-product/:id', component: DeleteProductComponent },
+            { path: 'warehouse-product/:id', component: WarehouseProductComponent },
+            { path: 'add-warehouse-product/:id', component: AddWarehouseProductComponent },
+            { path: 'remove-warehouse-product/:id', component: RemoveWarehouseProductComponent }
+        ]),
+        ToastrModule.forRoot()
+    ],
 
-  providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService, WarehouseProductService],
-  bootstrap: [AppComponent]
+    providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService, WarehouseProductService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

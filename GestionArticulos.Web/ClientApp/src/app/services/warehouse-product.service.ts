@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 import { WarehouseProduct } from "../models/warehouse-product.model";
 import { WarehouseProductViewModel } from "../models/warehouse-product.viewmodel";
 import { Product } from "../models/product.model";
+import { AddWarehouseProduct } from "../models/add-warehouse-product.model";
 
 @Injectable()
 export class WarehouseProductService {
@@ -20,15 +21,19 @@ export class WarehouseProductService {
     return this.httpClient.get<WarehouseProductViewModel>(`api/WarehouseProduct/GetByWarehouseId/${id}`);
   }
 
-  public addProduct(warehouse: Warehouse, product: Product, count: number) {
-    return this.httpClient.post('api/WarehouseProduct/AddProduct', {
-      warehouse, product, count
-    });
+    public addWarehouseProduct(addWarehouseProduct: AddWarehouseProduct) {
+        return this.httpClient.post('api/WarehouseProduct/addWarehouseProduct', addWarehouseProduct);
   }
 
-  public removeProduct(warehouse: Warehouse, product: Product, count: number) {
-    return this.httpClient.post('api/WarehouseProduct/RemoveProduct', {
-      warehouse, product, count
-    });
-  }
+    public removeWarehouseProduct(removeWarehouseProduct: AddWarehouseProduct) {
+        return this.httpClient.post('api/WarehouseProduct/RemoveProduct', removeWarehouseProduct);
+    }
+
+    public getRemainingCapacityByWarehouseId(id: number) {
+        return this.httpClient.get<number>(`api/WarehouseProduct/GetRemainingCapacityByWarehouse/${id}`);
+    }
+
+    public getProductCountByWarehouse(warehouseId:number, productId:number) {
+        return this.httpClient.get<number>(`api/WarehouseProduct/GetProductCountByWarehouse/${warehouseId}/${productId}`);
+    }
 }
