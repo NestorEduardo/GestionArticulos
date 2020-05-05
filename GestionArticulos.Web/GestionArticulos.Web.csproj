@@ -37,12 +37,15 @@
     <None Remove="ClientApp\src\app\models\product.model.ts" />
     <None Remove="ClientApp\src\app\models\province.model.ts" />
     <None Remove="ClientApp\src\app\models\warehouse-form.model.ts" />
+    <None Remove="ClientApp\src\app\models\warehouse-product.model.ts" />
+    <None Remove="ClientApp\src\app\models\warehouse-product.viewmodel.ts" />
     <None Remove="ClientApp\src\app\models\warehouse.model.ts" />
     <None Remove="ClientApp\src\app\services\category.service.ts" />
     <None Remove="ClientApp\src\app\services\municipality.service.ts" />
     <None Remove="ClientApp\src\app\services\neighborhood.service.ts" />
     <None Remove="ClientApp\src\app\services\product.service.ts" />
     <None Remove="ClientApp\src\app\services\province.service.ts" />
+    <None Remove="ClientApp\src\app\services\warehouse-product.service.ts" />
     <None Remove="ClientApp\src\app\services\warehouse.service.ts" />
   </ItemGroup>
 
@@ -52,6 +55,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-product.viewmodel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\category.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\warehouse-form.model.ts" />
@@ -64,6 +69,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\services\province.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\category.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\product.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\warehouse-product.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\warehouse.service.ts" />
   </ItemGroup>
 

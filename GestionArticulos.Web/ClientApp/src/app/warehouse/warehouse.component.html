@@ -1,41 +1,47 @@
 <h1>Almacenes</h1>
 <div>
-  <a [href]="'/add-warehouse'">
-    <input type="button" class="btn btn-primary" value="Agregar" />
-  </a>
+    <a [href]="'/add-warehouse'">
+        <input type="button" class="btn btn-primary" value="Agregar" />
+    </a>
 </div>
 <br />
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Descripci&oacute;n</th>
-      <th scope="col">Direcci&oacute;n</th>
-      <th scope="col">Sector</th>
-      <th scope="col">Municipio</th>
-      <th scope="col">Provincia</th>
-      <th scope="col">Capacidad de art&iacute;culos</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let warehouse of warehouses">
-    <tr>
-      <td>{{warehouse.description}}</td>
-      <td>{{warehouse.address}}</td>
-      <td>{{warehouse.neighborhood.description}}</td>
-      <td>{{warehouse.neighborhood.municipality.description}}</td>
-      <td>{{warehouse.neighborhood.municipality.province.description}}</td>
-      <td>{{warehouse.capacity}}</td>
-      <td>
-        <a [href]="'/edit-warehouse/' + warehouse.id">
-          <input type="button" class="btn btn-warning" value="Editar" />
-        </a>
-      </td>
-      <td>
-        <a [href]="'/delete-warehouse/' + warehouse.id">
-          <input type="button" class="btn btn-danger" value="Eliminar" />
-        </a>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">Descripci&oacute;n</th>
+            <th scope="col">Direcci&oacute;n</th>
+            <th scope="col">Sector</th>
+            <th scope="col">Municipio</th>
+            <th scope="col">Provincia</th>
+            <th scope="col">Capacidad de art&iacute;culos</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let warehouse of warehouses">
+        <tr>
+            <td>{{warehouse.description}}</td>
+            <td>{{warehouse.address}}</td>
+            <td>{{warehouse.neighborhood.description}}</td>
+            <td>{{warehouse.neighborhood.municipality.description}}</td>
+            <td>{{warehouse.neighborhood.municipality.province.description}}</td>
+            <td>{{warehouse.capacity}}</td>
+            <td>
+                <a [href]="'/warehouse-product/' + warehouse.id">
+                    <input type="button" class="btn btn-info" value="Artículos" />
+                </a>
+            </td>
+            <td>
+                <a [href]="'/edit-warehouse/' + warehouse.id">
+                    <input type="button" class="btn btn-warning" value="Editar" />
+                </a>
+            </td>
+            <td>
+                <a [href]="'/delete-warehouse/' + warehouse.id">
+                    <input type="button" class="btn btn-danger" value="Eliminar" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
 </table>

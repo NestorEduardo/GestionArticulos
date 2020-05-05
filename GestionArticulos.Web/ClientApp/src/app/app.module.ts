@@ -11,6 +11,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AddWarehouseComponent } from './add-warehouse/add-warehouse.component';
 import { WarehouseService } from './services/warehouse.service';
+import { WarehouseProductService } from './services/warehouse-product.service';
 import { CategoryService } from './services/category.service';
 import { ProvinceService } from './services/province.service';
 import { MunicipalityService } from './services/municipality.service';
@@ -29,6 +30,7 @@ import { ProductComponent } from './product/product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { WarehouseProductComponent } from './warehouse-product/warehouse-product.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
     ProductComponent,
     AddProductComponent,
     EditProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    WarehouseProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -74,11 +77,12 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
       { path: 'add-product', component: AddProductComponent },
       { path: 'edit-product/:id', component: EditProductComponent },
       { path: 'delete-product/:id', component: DeleteProductComponent },
+      { path: 'warehouse-product/:id', component: WarehouseProductComponent }
     ]),
     ToastrModule.forRoot()
   ],
 
-  providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService],
+  providers: [WarehouseService, ProvinceService, MunicipalityService, NeighborhoodService, CategoryService, ProductService, WarehouseProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

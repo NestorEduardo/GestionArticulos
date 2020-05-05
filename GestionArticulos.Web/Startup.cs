@@ -29,12 +29,14 @@ namespace GestionArticulos.Web
             services.AddTransient<INeighborhoodService, NeighborhoodService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IWarehouseProductService, WarehouseProductService>();
             services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddTransient<IProvinceRepository, ProvinceRepository>();
             services.AddTransient<IMunicipalityRepository, MunicipalityRepository>();
             services.AddTransient<INeighborhoodRepository, NeighborhoodRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IWarehouseProductRepository, WarehouseProductRepository>();
             services.AddControllersWithViews();
             services.AddSpaStaticFiles(configuration =>
             {
@@ -76,9 +78,6 @@ namespace GestionArticulos.Web
 
             app.UseSpa(spa =>
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
                 spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())

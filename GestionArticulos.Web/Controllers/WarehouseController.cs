@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using GestionArticulos.Core.Domain;
 using GestionArticulos.Services.Abstract;
-using GestionArticulos.Services.Framework;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Newtonsoft.Json;
 
 namespace GestionArticulos.Web.Controllers
 {

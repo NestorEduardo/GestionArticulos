@@ -1,0 +1,29 @@
+<h1>Productos de {{warehouse.description}}</h1>
+<p>Capacidad de productos: {{warehouse.capacity}}</p>
+<p>Productos resgistrados: {{warehouseProductsViewModel.usedCapacity}}</p>
+<p>Capacidad restante: {{warehouse.capacity - warehouseProductsViewModel.usedCapacity}}</p>
+
+<div>
+  <a [href]="'/warehouse-product'">
+    <input type="button" class="btn btn-primary" value="Agregar" />
+  </a>
+</div>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Descripci&oacute;n</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Categor&iacute;a</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let warehouseProduct of warehouseProductsViewModel.warehouseProducts">
+    <tr>
+      <td>{{warehouseProduct.product.description}}</td>
+      <td>{{warehouseProduct.product.price}}</td>
+      <td>{{warehouseProduct.product.category.description}}</td>
+      <td>{{warehouseProduct.count}}</td>
+    </tr>
+  </tbody>
+</table>

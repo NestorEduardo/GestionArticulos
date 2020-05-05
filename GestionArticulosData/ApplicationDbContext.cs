@@ -12,5 +12,6 @@ namespace GestionArticulosData
         public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<WarehouseProduct> WarehouseProducts { get; set; }
     }
 }
