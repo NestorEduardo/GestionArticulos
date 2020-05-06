@@ -40,12 +40,14 @@ namespace GestionArticulos.Repository.Abstract
 
             if (warehouseProduct == null)
             {
-                Database.WarehouseProducts.Add(new WarehouseProduct
+                warehouseProduct = new WarehouseProduct()
                 {
                     Count = count,
                     WarehouseId = warehouseId,
                     ProductId = productId,
-                });
+                };
+
+                Database.WarehouseProducts.Add(warehouseProduct);
             }
             else
             {
