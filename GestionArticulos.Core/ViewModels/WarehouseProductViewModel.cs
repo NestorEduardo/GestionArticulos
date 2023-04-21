@@ -7,5 +7,7 @@ namespace GestionArticulos.Core.ViewModels
     {
         public List<WarehouseProduct> WarehouseProducts { get; set; }
         public int UsedCapacity { get; set; }
+        public List<WarehouseProduct> Test { get; set; }
+
     }
 }
