@@ -15,6 +15,7 @@ namespace GestionArticulosData
         public DbSet<WarehouseProduct> WarehouseProducts { get; set; }
         public DbSet<Movement> Movements { get; set; }
         public DbSet<MovementType> MovementTypes { get; set; }
+        public DbSet<MovementType> Test2 { get; set; }
 
     }
 }
